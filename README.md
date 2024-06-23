@@ -5,5 +5,3 @@ You open a GB or GBC file with the app :) 😏😏😏😏😏
 
 # How to use GBTileExtractor
 You open a GB or GBC file with the app then you put in the offset of the tile :D
-
-![SKIBIDI DOP DOP DOP](https://curadas.com/wp-content/uploads/2023/11/500x500-FILEminimizer.jpg)
