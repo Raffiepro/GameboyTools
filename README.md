@@ -5,3 +5,4 @@ You open a GB or GBC file with the app :) 😏😏😏😏😏
 
 # How to use GBTileExtractor
 You open a GB or GBC file with the app then you put in the offset of the tile :D
+(In GB/GBC roms the tile data starts at 8000)
