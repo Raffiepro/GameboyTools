@@ -13,4 +13,3 @@ You open a GB or GBC file with the app then you put in the offset of the tile :D
 (In GB/GBC roms the tile data starts at 8000)
   
 GB and GBC games supported! 😁😁😁 (The exported tiles from GBC ROMS don't use the in-game palette)  
-I had some issues with exporting to PNG with Linux because of a bug in STB, so it exports to BMP
