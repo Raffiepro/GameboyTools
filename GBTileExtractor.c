@@ -77,6 +77,8 @@ int main(int argc, char *argv[])
         scanf("%s", hex_offset);
     }
     unsigned int offset = (unsigned int)strtol(hex_offset, NULL, 16);
+    char last_hex_offset[5];
+    strcpy(last_hex_offset, hex_offset);
 
     uint8_t img[8*8*3];
 
@@ -85,13 +87,22 @@ int main(int argc, char *argv[])
     while(true)
     {
         read_tile(f, offset, img);
-        stbi_write_bmp(strcat(hex_offset, ".bmp"), 8, 8, 3, img);
 
         getchar();
-        printf("Enter offset ('exit' to exit): ");
+        printf("Enter offset ('e' to export, 'ex' to exit): ");
         scanf("%s", hex_offset);
-        if(strcmp(hex_offset, "exit")==0) break;
+
+        if(strcmp(hex_offset, "e")==0)
+        {
+            stbi_write_bmp(strcat(last_hex_offset, ".bmp"), 8, 8, 3, img);
+            printf("Exported!\n");
+            continue;
+        }
+
+        if(strcmp(hex_offset, "ex")==0) break;
+
         offset = (unsigned int)strtol(hex_offset, NULL, 16);
+        strcpy(last_hex_offset, hex_offset);
     }
 
     fclose(f);
