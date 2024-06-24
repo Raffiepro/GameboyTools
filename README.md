@@ -1,3 +1,6 @@
+Thanks to the docs that gave me the info to be able to program this! 😃  
+https://gbdev.io/pandocs/
+
 # How to use GBHeaderReader
 You open a GB or GBC file with the app :) 😏😏😏😏😏
 
