@@ -5,12 +5,15 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
-bool get_bit(char data, char bit)
+using u8 = unsigned char;
+using u16 = unsigned short;
+
+bool get_bit(u8 data, u8 bit)
 {
     return (data >> bit) & 1;
 }
 
-void read_tile(FILE* f, size_t offset, char* img)
+void read_tile(FILE* f, size_t offset, u8* img)
 {
     char data[16];
     
@@ -21,11 +24,11 @@ void read_tile(FILE* f, size_t offset, char* img)
     {
         for(int x=0;x<8;x++)
         {
-            char tile=0;
+            u8 tile=0;
             tile = get_bit(data[y*2], 7-x);
             tile += get_bit(data[y*2+1], 7-x)<<1;
 
-            uint8_t color = ((float)(3-tile)/3) * 255;
+            u8 color = ((float)(3-tile)/3) * 255;
 
             img[(y*8+x)*3] = color;
             img[(y*8+x)*3+1] = color;
@@ -65,7 +68,7 @@ int main(int argc, char *argv[])
         scanf("%s", rom_path);
     }
 
-    char hex_offset[5];
+    u8 hex_offset[5];
     if(argc > 2)
     {
         strcpy(hex_offset, argv[2]);
@@ -77,10 +80,10 @@ int main(int argc, char *argv[])
         scanf("%s", hex_offset);
     }
     unsigned int offset = (unsigned int)strtol(hex_offset, NULL, 16);
-    char last_hex_offset[5];
+    u8 last_hex_offset[5];
     strcpy(last_hex_offset, hex_offset);
 
-    uint8_t img[8*8*3];
+    u8 img[8*8*3];
 
     FILE* f = fopen(rom_path, "r");
 
