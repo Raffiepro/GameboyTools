@@ -1,14 +1,12 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
-using u8 = unsigned char;
-using u16 = unsigned short;
+typedef unsigned char u8;
+typedef unsigned short u16;
 
-bool get_bit(u8 data, u8 bit)
+u8 get_bit(u8 data, u8 bit)
 {
     return (data >> bit) & 1;
 }
@@ -87,7 +85,7 @@ int main(int argc, char *argv[])
 
     FILE* f = fopen(rom_path, "r");
 
-    while(true)
+    while(1)
     {
         read_tile(f, offset, img);
 
